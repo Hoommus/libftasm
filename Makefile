@@ -6,7 +6,7 @@
 #    By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 21:50:14 by vtarasiu          #+#    #+#              #
-#    Updated: 2019/07/18 22:24:31 by vtarasiu         ###   ########.fr        #
+#    Updated: 2019/07/19 17:04:31 by vtarasiu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,16 @@ FLAGS = -Wall  \
         -Werror
 
 ASM_DIR = ./
-ASM_SRC = ft_bzero.s ft_isalpha.s
+ASM_SRC = ft_puts.s \
+          ft_bzero.s \
+          ft_strlen.s \
+          ft_strcat.s  \
+          ft_isalpha.s \
+          ft_isascii.s \
+          ft_isdigit.s \
+          ft_isprint.s \
+          ft_toupper.s \
+          ft_isalnum.s
 
 OBJ_DIR = obj/
 
@@ -40,5 +49,14 @@ $(NAME): prepare | $(OBJ)
 $(OBJ_DIR)%.o: %.s
 	$(ASM) -f macho64 -o $@ $<
 
-test:
+test: all
 	$(CC) $(FLAGS) $(NAME) main.c -o test
+
+clean:
+	/bin/rm -f $(OBJ)
+	/bin/rm -rf $(OBJ_DIR)
+
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all
