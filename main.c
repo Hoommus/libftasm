@@ -6,52 +6,70 @@
 /*   By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 22:25:27 by vtarasiu          #+#    #+#             */
-/*   Updated: 2019/07/19 18:45:13 by vtarasiu         ###   ########.fr       */
+/*   Updated: 2019/07/19 20:37:32 by vtarasiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftasm.h"
 #include <stdio.h>
+#include <limits.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 
 #define BOOL(x) ((x) ? "true" : "false")
 
+int		test_iswhat(const char *name, int (*orig)(int), int (*asm_f)(int))
+{
+	int		result;
+	int		original;
+	int		i;
+	int		last_i;
+	int		status;
+
+	status = 0;
+	i = 0;
+	while (i < INT32_MAX)
+	{
+		last_i = i;
+		result = asm_f(i);
+		original = orig(i);
+		if (result != original)
+			status = dprintf(2, "%s test failed for %c (%#02x)\n", name, i, i);
+		if (i != last_i)
+			dprintf(2, " %s altered its argument. Expected %d, but got %d", name, last_i, i);
+		if (i % 100000000 == 0 && status == 0)
+			write(1, ".", 1);
+		i++;
+	}
+	return (status);
+}
+
 int		main(void)
 {
-	printf("isalpha tests\n");
-	printf("isalpha(%c) %s\n", 'c', BOOL(ft_isalpha('A')));
-	printf("isalpha(%c) %s\n", 'a', BOOL(ft_isalpha('a')));
-	printf("isalpha(%c) %s\n", 'z', BOOL(ft_isalpha('z')));
-	printf("isalpha(%c) %s\n", 'Z', BOOL(ft_isalpha('Z')));
-	printf("isalpha(%c) %s\n", ' ', BOOL(ft_isalpha(' ')));
-	printf("isalpha(%c) %s\n", '0', BOOL(ft_isalpha('0')));
-
-
-	printf("\nisprint tests\n");
-	printf("isprint(%c) %s\n", 'c', BOOL(ft_isprint('A')));
-	printf("isprint(%c) %s\n", 'a', BOOL(ft_isprint('a')));
-	printf("isprint(%c) %s\n", 'z', BOOL(ft_isprint('z')));
-	printf("isprint(%c) %s\n", 'Z', BOOL(ft_isprint('Z')));
-	printf("isprint(%c) %s\n", ' ', BOOL(ft_isprint(' ')));
-	printf("isprint(%c) %s\n", '0', BOOL(ft_isprint('0')));
-	printf("isprint(%c) %s\n", ' ', BOOL(ft_isprint(32)));
-	printf("isprint(%d) %s\n", 127, BOOL(ft_isprint(127)));
-	printf("isprint(%d) %s\n", 4,   BOOL(ft_isprint(4)));
-	printf("isprint(%d) %s\n", 10,  BOOL(ft_isprint(10)));
-
-
-	printf("\nisascii tests\n");
-	printf("isacii(%c) %s\n", 'c', BOOL(ft_isascii('A')));
-	printf("isacii(%c) %s\n", 'a', BOOL(ft_isascii('a')));
-	printf("isacii(%c) %s\n", 'z', BOOL(ft_isascii('z')));
-	printf("isacii(%c) %s\n", 'Z', BOOL(ft_isascii('Z')));
-	printf("isacii(%c) %s\n", ' ', BOOL(ft_isascii(' ')));
-	printf("isacii(%c) %s\n", '0', BOOL(ft_isascii('0')));
-	printf("isacii(%d) %s\n", 0,   BOOL(ft_isascii(0)));
-	printf("isacii(%d) %s\n", 127, BOOL(ft_isascii(127)));
-	printf("isacii(%d) %s\n", 255, BOOL(ft_isascii(255)));
-	printf("isacii(%d) %s\n", 256, BOOL(ft_isascii(256)));
-	printf("isacii(%d) %s\n", 257, BOOL(ft_isascii(257)));
-	printf("isacii(%d) %s\n", 2147483647, BOOL(ft_isascii(2147483647)));
+	printf("ft_isalnum() vs isalnum():\n");
+	if (test_iswhat("isalnum", isalnum, ft_isalnum) == 0)
+		printf(" OK\n");
+	printf("ft_isalpha() vs isalpha():\n");
+	if (test_iswhat("isalpha", isalpha, ft_isalpha) == 0)
+		printf(" OK\n");
+	printf("ft_isascii() vs isascii():\n");
+	if (test_iswhat("isascii", isascii, ft_isascii) == 0)
+		printf(" OK\n");
+	printf("ft_isdigit() vs isdigit():\n");
+	if (test_iswhat("isdigit", isdigit, ft_isdigit) == 0)
+		printf(" OK\n");
+	printf("ft_isprint() vs isprint():\n");
+	if (test_iswhat("isprint", isprint, ft_isprint) == 0)
+		printf(" OK\n");
+	
+	printf("ft_tolower() vs tolower():\n");
+	if (test_iswhat("ft_tolower", tolower, ft_tolower) == 0)
+		printf(" OK\n");
+	printf("ft_toupper() vs toupper():\n");
+	if (test_iswhat("ft_toupper", toupper, ft_toupper) == 0)
+		printf(" OK\n");
 
 	printf("\nputs tests\n");
 	ft_puts("hello");

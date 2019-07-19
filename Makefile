@@ -6,7 +6,7 @@
 #    By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 21:50:14 by vtarasiu          #+#    #+#              #
-#    Updated: 2019/07/19 17:04:31 by vtarasiu         ###   ########.fr        #
+#    Updated: 2019/07/19 18:37:40 by vtarasiu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ ASM_SRC = ft_puts.s \
           ft_isdigit.s \
           ft_isprint.s \
           ft_toupper.s \
-          ft_isalnum.s
+          ft_isalnum.s \
+          ft_toupper.s \
+          ft_tolower.s
 
 OBJ_DIR = obj/
 
