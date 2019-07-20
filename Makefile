@@ -6,7 +6,7 @@
 #    By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 21:50:14 by vtarasiu          #+#    #+#              #
-#    Updated: 2019/07/19 18:37:40 by vtarasiu         ###   ########.fr        #
+#    Updated: 2019/07/20 18:57:34 by vtarasiu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,14 @@ INCLUDE = libfts.h
 
 FLAGS = -Wall  \
         -Wextra \
-        -Werror
+        -Werror -fsanitize=address -g
 
 ASM_DIR = ./
 ASM_SRC = ft_puts.s \
           ft_bzero.s \
           ft_strlen.s \
           ft_strcat.s  \
+          ft_strdup.s  \
           ft_isalpha.s \
           ft_isascii.s \
           ft_isdigit.s \
