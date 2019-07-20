@@ -6,7 +6,7 @@
 /*   By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 22:25:27 by vtarasiu          #+#    #+#             */
-/*   Updated: 2019/07/19 20:37:32 by vtarasiu         ###   ########.fr       */
+/*   Updated: 2019/07/19 21:26:10 by vtarasiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,62 @@ int		test_iswhat(const char *name, int (*orig)(int), int (*asm_f)(int))
 		i++;
 	}
 	return (status);
+}
+
+static char			g_dsts[][1024] =
+{
+	"hello",
+	"world",
+	"",
+	"\0",
+	"NirJmaKUgaYttgXPugxfryCDyoFfFgKqEbNhUxCY",
+	"lXBXGSZrbtFTnqcotTZS",
+	"WruUrhtObnnHjkpKxbSYLpSpjwiOBNfIrtdEBGAN",
+	"xEMMtJNTCcdNsdjCAYAaqXHZupdTWnIZACHUVOzeqXHZupdTWnIZACHUVOzeqXHZupdTWnIZAC"
+	"HUVOzeqXHZupdTWnIZACHUVOzeqXHZupdTWnIZACHUVOze",
+	"qXHZupdTWnIZACHUVOze",
+	"qkygGbeIawZMEPNasVYl",
+	"HcTAsloEImmmWPDQEZPB",
+	"yIcWvpujrllUvrrtspsC",
+	"vjvkgKzOzVFEBDJlJAHeZkDHqeUcSVeshmNfRIHfvofhbymzljvKrrLpumPzJWgNpzIAASmvVc"
+	"AtrxHybiPNZIVXjjncZSFNswHSlktFfayGPNxijjwPupbFPbqYlsmpiJrmwHSNrOIAufgSyqpM"
+	"YNZyulNEovRuJdmvNeuafuPHzsjAcHKzNHZJGFVEcHLPlwQBkGmoYtoyODFMVMsOAUuhydXiPK"
+	"sRLJqRRvVisjSqLxdHvKwZZMoUGzkGjAiauesMrXHrDuOZVcFFFtEPKXEjuMQLdMHkPvdrwdbS"
+	"vvHZSLufAubUQtjVgMAVUlCOWQkTxwxurphdldBhPKvXmpbsVrcisCHYqxGuWoUXdSLyVQTqTh"
+	"VigvJlOgCruvmqWkslmaIczwLkmjxp",
+	NULL
+};
+
+static const char	*g_srcs[] =
+{
+	"",
+	"vXVlOgkFshKmuuWvzHgh",
+	"ZZxlhPEchyBGCYtOQIJv",
+	"BSjYBygwrcWHrfkXAhre",
+	"AnkQtobwcitdCUGJEpxt",
+	"mgJhvVsalXrvmvzqpsVJ",
+	"iJbzYfFwhIyGwrCsCQMm",
+	"wpofbUadbwNNWNiwnhcn",
+	"NrZerqfmtpIknJzSGzth",
+	"AcqahVhiDJuaoCvgelLRBzuGhYkNoeNvuvtnnAPm",
+	"AaAaAaAaAaAaAaAaAaAaA",
+	"prUuGKULiXrpvvxSLAhA",
+	"wsWfqiiKSCCmPLbytGGC",
+	"oPyewHDoQixdrHteBNtYeKJMKDSLolbvJjOqSyLh",
+	"spWYciyPBTUllIkqnhbH",
+	"jiysNsTQDQJyUcBwFfER",
+	"DPzunLDTJuIOnDseDNMB",
+	"\0\0\0",
+	"vvrOpWcGELOhwOTAqyFj",
+	"hRqJFcyynensbqBAotwBZyUAxukJWmIIWbVQnCbx",
+	"seHJDMCVBqrUZJJAPaDgcDrWlYVeUpUMEHRkpsehiuhmEQCQfahTACNfbnJfSjxgFBmAIaJUxa"
+	"RmrmDwZbgphhKgNcaqvKaSRajEbMxtlUhWzNDTJcGeRetD"
+};
+
+int		test_strcat(void)
+{
+	int		status;
+
 }
 
 int		main(void)

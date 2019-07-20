@@ -27,5 +27,6 @@ int			ft_toupper(int c);
 char		*ft_strcat(char *restrict dst, const char *src);
 size_t		ft_strlen(char *str);
 int			ft_puts(const char *str);
+char		*ft_strdup(const char *str);
 
 #endif
