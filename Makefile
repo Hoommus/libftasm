@@ -6,7 +6,7 @@
 #    By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 21:50:14 by vtarasiu          #+#    #+#              #
-#    Updated: 2019/07/20 18:57:34 by vtarasiu         ###   ########.fr        #
+#    Updated: 2019/07/20 19:18:20 by vtarasiu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ INCLUDE = libfts.h
 
 FLAGS = -Wall  \
         -Wextra \
-        -Werror -fsanitize=address -g
+        -Werror  \
+        -g \
+       #-fsanitize=address
 
 ASM_DIR = ./
 ASM_SRC = ft_puts.s \
@@ -34,7 +36,8 @@ ASM_SRC = ft_puts.s \
           ft_toupper.s \
           ft_isalnum.s \
           ft_toupper.s \
-          ft_tolower.s
+          ft_tolower.s \
+          ft_memcpy.s
 
 OBJ_DIR = obj/
 

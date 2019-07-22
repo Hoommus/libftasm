@@ -111,7 +111,7 @@ int		test_strdup(void)
 
 	status = 0;
 	i = 0;
-	while (i < 15)
+	while (i < 13)
 	{
 		dupped = ft_strdup(g_dsts[i]);
 		odupped = strdup(g_dsts[i]);
@@ -146,28 +146,28 @@ int		test_strlen(void)
 
 int		main(void)
 {
-	printf("ft_isalnum() vs isalnum():\n");
-	if (test_iswhat("isalnum", isalnum, ft_isalnum) == 0)
-		printf(" OK\n");
-	printf("ft_isalpha() vs isalpha():\n");
-	if (test_iswhat("isalpha", isalpha, ft_isalpha) == 0)
-		printf(" OK\n");
-	printf("ft_isascii() vs isascii():\n");
-	if (test_iswhat("isascii", isascii, ft_isascii) == 0)
-		printf(" OK\n");
-	printf("ft_isdigit() vs isdigit():\n");
-	if (test_iswhat("isdigit", isdigit, ft_isdigit) == 0)
-		printf(" OK\n");
-	printf("ft_isprint() vs isprint():\n");
-	if (test_iswhat("isprint", isprint, ft_isprint) == 0)
-		printf(" OK\n");
+//	printf("ft_isalnum() vs isalnum():\n");
+//	if (test_iswhat("isalnum", isalnum, ft_isalnum) == 0)
+//		printf(" OK\n");
+//	printf("ft_isalpha() vs isalpha():\n");
+//	if (test_iswhat("isalpha", isalpha, ft_isalpha) == 0)
+//		printf(" OK\n");
+//	printf("ft_isascii() vs isascii():\n");
+//	if (test_iswhat("isascii", isascii, ft_isascii) == 0)
+//		printf(" OK\n");
+//	printf("ft_isdigit() vs isdigit():\n");
+//	if (test_iswhat("isdigit", isdigit, ft_isdigit) == 0)
+//		printf(" OK\n");
+//	printf("ft_isprint() vs isprint():\n");
+//	if (test_iswhat("isprint", isprint, ft_isprint) == 0)
+//		printf(" OK\n");
 
-	printf("ft_tolower() vs tolower():\n");
-	if (test_iswhat("ft_tolower", tolower, ft_tolower) == 0)
-		printf(" OK\n");
-	printf("ft_toupper() vs toupper():\n");
-	if (test_iswhat("ft_toupper", toupper, ft_toupper) == 0)
-		printf(" OK\n");
+//	printf("ft_tolower() vs tolower():\n");
+//	if (test_iswhat("ft_tolower", tolower, ft_tolower) == 0)
+//		printf(" OK\n");
+//	printf("ft_toupper() vs toupper():\n");
+//	if (test_iswhat("ft_toupper", toupper, ft_toupper) == 0)
+//		printf(" OK\n");
 
 	printf("ft_strdup() (with strcat and strlen) vs strdup():\n");
 	if (test_strdup() == 0)

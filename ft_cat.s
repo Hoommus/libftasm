@@ -1,27 +1,14 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_memset.s                                        :+:      :+:    :+:    #
+#    ft_cat.s                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vtarasiu <vtarasiu@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/07/19 17:00:28 by vtarasiu          #+#    #+#              #
-#    Updated: 2019/07/19 17:00:28 by vtarasiu         ###   ########.fr        #
+#    Created: 2019/07/20 20:47:59 by vtarasiu          #+#    #+#              #
+#    Updated: 2019/07/20 20:48:16 by vtarasiu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-global _ft_memset
-
-_ft_memset:
-	push        rbp
-	mov         rbp, rsp
-
-	push        rdi
-
-	mov         rcx, rdx
-	mov         rax, rsi
-	rep stosb
-
-    pop         rdi
-	pop         rbp
-	ret
+section .data
+	buff db 1000 dup(?)
