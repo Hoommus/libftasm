@@ -1,5 +1,5 @@
 
-*Just in case anybody will need it...*
+*Just in case somebody will need it...*
 
 ## libftasm
 
