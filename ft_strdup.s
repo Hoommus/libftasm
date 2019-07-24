@@ -16,6 +16,14 @@ extern _ft_strlen
 extern _malloc
 extern malloc
 
+; assume it's macOS
+%deftok MALLOC '_malloc'
+
+%ifdef __linux__
+%deftok MALLOC 'malloc'
+%endif
+
+
 ft_strdup:
 _ft_strdup:
     push        rbx
@@ -31,7 +39,7 @@ _ft_strdup:
 	mov         rdi, rax    ; move desired size for malloc to its first register
 	add         rdi, 1      ; add space for \0 at the end
 
-	call        malloc     ; get new pointer
+	call        MALLOC     ; get new pointer
 	cmp         rax, 0
 	pop         rcx
 	pop         rsi
