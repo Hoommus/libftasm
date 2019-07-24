@@ -10,9 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
+global ft_puts
 global _ft_puts
 extern _ft_strlen
 
+ft_puts:
 _ft_puts:
 	push    rbp
 	mov     rbp, rsp

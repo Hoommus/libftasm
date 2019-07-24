@@ -15,6 +15,17 @@ NAME = libfts.a
 CC = clang
 ASM = nasm
 
+UNAME_S = $(shell uname -s)
+
+ARCH = 
+
+ifeq ($(UNAME_S), Linux)
+	ARCH += elf64
+endif
+ifeq ($(UNAME_S), Darwin)
+	ARCH += macho64
+endif
+
 INCLUDE = libfts.h
 
 FLAGS = -Wall  \
@@ -53,10 +64,10 @@ $(NAME): prepare | $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_DIR)%.o: %.s
-	$(ASM) -f macho64 -o $@ $<
+	$(ASM) -f $(ARCH) -o $@ $<
 
 test: all
-	$(CC) $(FLAGS) $(NAME) main.c -o test
+	$(CC) $(FLAGS) -o test main.c $(NAME) -I.
 
 clean:
 	/bin/rm -f $(OBJ)

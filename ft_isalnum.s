@@ -12,10 +12,12 @@
 
 section .text
 
+global ft_isalnum
 global _ft_isalnum
 extern _ft_isalpha
 extern _ft_isdigit
 
+ft_isalnum:
 _ft_isalnum:
 	push    rbp
 	mov     rbp, rsp

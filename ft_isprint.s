@@ -10,8 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+global ft_isprint
 global _ft_isprint
 
+ft_isprint:
 _ft_isprint:
 	push    rbp
 	mov     rbp, rsp

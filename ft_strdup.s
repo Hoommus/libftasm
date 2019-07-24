@@ -10,9 +10,11 @@
 ;                                                                              ;
 ; **************************************************************************** ;
 
+global ft_strdup
 global _ft_strdup
 extern _ft_strlen
 extern _malloc
+extern malloc
 
 ft_strdup:
 _ft_strdup:
@@ -29,7 +31,7 @@ _ft_strdup:
 	mov         rdi, rax    ; move desired size for malloc to its first register
 	add         rdi, 1      ; add space for \0 at the end
 
-	call        _malloc     ; get new pointer
+	call        malloc     ; get new pointer
 	cmp         rax, 0
 	pop         rcx
 	pop         rsi

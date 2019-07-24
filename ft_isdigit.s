@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-section .text
-
+global ft_isdigit
 global _ft_isdigit
 
+ft_isdigit:
 _ft_isdigit:
 	push    rbp
 	mov     rbp, rsp
@@ -23,9 +23,9 @@ _ft_isdigit:
 	cmp     rdi, 57
 	jg      .isdigit_fail
 
-.isdigit_succ:
 	mov     rax, 1
 	jmp     .isdigit_over
+
 .isdigit_fail:
 	mov     rax, 0
 .isdigit_over:

@@ -10,8 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+global ft_toupper
 global _ft_toupper
 
+ft_toupper:
 _ft_toupper:
 	push    rbp
 	mov     rbp, rsp
